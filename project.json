@@ -1,0 +1,22 @@
+{
+  "overview": "Rabab Studios is a premium music and post-production studio website with a minimalistic, dark, warm brown aesthetic. The multipage site features a cinematic hero landing page, services, filterable portfolio, about, and contact pages — all unified by a classy full-image dark banner design and Pure Sans Serif typography.",
+  "features": [
+    "Cinematic full-image dark hero banner with grain texture",
+    "Pure Sans Serif typography throughout",
+    "#4C2F26 warm brown color palette",
+    "Multipage structure: Hero, Services, Portfolio, About, Contact",
+    "Filterable portfolio/gallery",
+    "Sticky navigation with active page indicator",
+    "Contact form with inquiry details"
+  ],
+  "category": "showcase",
+  "tags": [
+    "music-studio",
+    "post-production",
+    "portfolio",
+    "dark-theme",
+    "minimalist",
+    "premium"
+  ],
+  "last_updated": "2026-04-09T17:27:48.755Z"
+}
