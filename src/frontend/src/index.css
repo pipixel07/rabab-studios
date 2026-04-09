@@ -126,6 +126,17 @@
     @apply relative w-full h-screen bg-cover bg-center;
   }
 
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .hero-overlay {
     @apply absolute inset-0 bg-black/50;
   }

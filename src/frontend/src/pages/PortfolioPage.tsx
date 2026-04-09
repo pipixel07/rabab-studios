@@ -180,18 +180,21 @@ export default function PortfolioPage() {
     <div className="flex flex-col">
       {/* ── Hero ── */}
       <section className="relative overflow-hidden min-h-[70vh] flex items-end">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/studio-banner.png')" }}
-        />
+        <video autoPlay loop muted playsInline className="hero-video">
+          <source src="/assets/banner-video.mp4" type="video/mp4" />
+        </video>
         <div
           className="absolute inset-0"
           style={{
+            zIndex: 1,
             background:
               "linear-gradient(to top, rgba(13,8,6,0.97) 0%, rgba(13,8,6,0.6) 55%, rgba(13,8,6,0.28) 100%)",
           }}
         />
-        <div className="absolute inset-0 grain opacity-30 pointer-events-none" />
+        <div
+          className="absolute inset-0 grain opacity-30 pointer-events-none"
+          style={{ zIndex: 2 }}
+        />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 pb-24 pt-44">
           <motion.div

@@ -49,11 +49,6 @@ const portfolioTeaser = [
 
 export default function HomePage() {
   const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress: heroScrollY } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroY = useTransform(heroScrollY, [0, 1], ["0%", "30%"]);
 
   const featuredRef = useRef<HTMLElement>(null);
   const { scrollYProgress: featuredScrollY } = useScroll({
@@ -76,26 +71,28 @@ export default function HomePage() {
         ref={heroRef}
         className="relative overflow-hidden min-h-screen flex items-end"
       >
-        <motion.div style={{ y: heroY }} className="absolute inset-0 scale-110">
-          <img
-            src="/assets/studio-banner.png"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
+        <video autoPlay loop muted playsInline className="hero-video">
+          <source src="/assets/banner-video.mp4" type="video/mp4" />
+        </video>
         {/* Dark gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
+            zIndex: 1,
             background:
               "linear-gradient(to top, rgba(13,8,6,0.95) 0%, rgba(13,8,6,0.55) 50%, rgba(13,8,6,0.3) 100%)",
           }}
         />
-        <div className="absolute inset-0 grain opacity-30 pointer-events-none" />
+        <div
+          className="absolute inset-0 grain opacity-30 pointer-events-none"
+          style={{ zIndex: 2 }}
+        />
 
         {/* Hero content */}
-        <div className="relative container mx-auto px-6 lg:px-12 pb-28 pt-44">
+        <div
+          className="relative container mx-auto px-6 lg:px-12 pb-28 pt-44"
+          style={{ zIndex: 10 }}
+        >
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}

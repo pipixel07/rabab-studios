@@ -87,20 +87,26 @@ export default function ContactPage() {
     <div className="flex flex-col">
       {/* ── Hero ── */}
       <section className="relative overflow-hidden min-h-[60vh] flex items-end">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/studio-banner.png')" }}
-        />
+        <video autoPlay loop muted playsInline className="hero-video">
+          <source src="/assets/banner-video.mp4" type="video/mp4" />
+        </video>
         <div
           className="absolute inset-0"
           style={{
+            zIndex: 1,
             background:
               "linear-gradient(to top, rgba(13,8,6,0.97) 0%, rgba(13,8,6,0.65) 55%, rgba(13,8,6,0.32) 100%)",
           }}
         />
-        <div className="absolute inset-0 grain opacity-30 pointer-events-none" />
+        <div
+          className="absolute inset-0 grain opacity-30 pointer-events-none"
+          style={{ zIndex: 2 }}
+        />
 
-        <div className="relative container mx-auto px-6 max-w-5xl pb-20 pt-40">
+        <div
+          className="relative container mx-auto px-6 max-w-5xl pb-20 pt-40"
+          style={{ zIndex: 10 }}
+        >
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}

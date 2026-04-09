@@ -29,13 +29,6 @@ const stats = [
 ];
 
 export default function AboutPage() {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress: heroScrollY } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroBgY = useTransform(heroScrollY, [0, 1], ["0%", "30%"]);
-
   const statsRef = useRef<HTMLElement>(null);
   const { scrollYProgress: statsScrollY } = useScroll({
     target: statsRef,
@@ -53,31 +46,27 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col">
       {/* ── Hero ── */}
-      <section
-        ref={heroRef}
-        className="relative overflow-hidden min-h-[75vh] flex items-end"
-      >
-        <motion.div
-          style={{ y: heroBgY }}
-          className="absolute inset-0 scale-110"
-        >
-          <img
-            src="/assets/studio-banner.png"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
+      <section className="relative overflow-hidden min-h-[75vh] flex items-end">
+        <video autoPlay loop muted playsInline className="hero-video">
+          <source src="/assets/banner-video.mp4" type="video/mp4" />
+        </video>
         <div
           className="absolute inset-0"
           style={{
+            zIndex: 1,
             background:
               "linear-gradient(to top, rgba(13,8,6,0.97) 0%, rgba(13,8,6,0.6) 55%, rgba(13,8,6,0.28) 100%)",
           }}
         />
-        <div className="absolute inset-0 grain opacity-30 pointer-events-none" />
+        <div
+          className="absolute inset-0 grain opacity-30 pointer-events-none"
+          style={{ zIndex: 2 }}
+        />
 
-        <div className="relative container mx-auto px-6 max-w-6xl pb-24 pt-44">
+        <div
+          className="relative container mx-auto px-6 max-w-6xl pb-24 pt-44"
+          style={{ zIndex: 10 }}
+        >
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
